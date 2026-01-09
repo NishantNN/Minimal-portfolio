@@ -25,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* SHOOTING STARS BACKGROUND - REFINED */
+    /* SUBTLE SHOOTING STARS BACKGROUND */
     .star-container {
       position: fixed;
       top: 0;
@@ -41,12 +41,11 @@
       position: absolute;
       top: -5%;
       left: -5%;
-      width: 1px; /* Thinner */
+      width: 1px;
       height: 1px;
       background: #fff;
       border-radius: 50%;
-      /* Muted intensity */
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05), 0 0 8px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.03), 0 0 8px rgba(255, 255, 255, 0.2);
       animation: animate linear infinite;
       opacity: 0;
     }
@@ -56,9 +55,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 60px; /* Shorter tail for less distraction */
+      width: 50px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
     }
 
     @keyframes animate {
@@ -67,10 +66,10 @@
         opacity: 0;
       }
       10% {
-        opacity: 0.8;
+        opacity: 0.6;
       }
       90% {
-        opacity: 0.8;
+        opacity: 0.6;
       }
       100% {
         transform: rotate(315deg) translateX(-1200px);
@@ -78,12 +77,12 @@
       }
     }
 
-    /* Faster speeds and randomized positions */
-    .star:nth-child(1) { top: 0; right: 10%; left:initial; animation-delay: 0s; animation-duration: 2.5s; }
-    .star:nth-child(2) { top: 30%; right: -5%; left:initial; animation-delay: 1.2s; animation-duration: 3.5s; }
-    .star:nth-child(3) { top: 60%; right: 20%; left:initial; animation-delay: 2.5s; animation-duration: 2.2s; }
-    .star:nth-child(4) { top: 15%; right: 40%; left:initial; animation-delay: 0.5s; animation-duration: 4s; }
-    .star:nth-child(5) { top: 80%; right: 15%; left:initial; animation-delay: 3.5s; animation-duration: 3s; }
+    /* Fast randomized stars */
+    .star:nth-child(1) { top: 0; right: 15%; left:initial; animation-delay: 0s; animation-duration: 2.2s; }
+    .star:nth-child(2) { top: 25%; right: -5%; left:initial; animation-delay: 1s; animation-duration: 3.2s; }
+    .star:nth-child(3) { top: 55%; right: 10%; left:initial; animation-delay: 2s; animation-duration: 2.5s; }
+    .star:nth-child(4) { top: 10%; right: 45%; left:initial; animation-delay: 0.4s; animation-duration: 3.8s; }
+    .star:nth-child(5) { top: 75%; right: 20%; left:initial; animation-delay: 3s; animation-duration: 2.8s; }
 
     .container {
       max-width: 650px;
@@ -92,7 +91,7 @@
       position: relative;
     }
 
-    /* HEADER SECTION */
+    /* SECTIONS */
     .section {
       margin-bottom: 100px;
       opacity: 0;
@@ -167,7 +166,7 @@
       transform: translateY(-8px) translateX(-50%);
       bottom: calc(100% + 12px);
       left: 50%;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s;
     }
 
     .copy-feedback.active {
@@ -202,6 +201,10 @@
       border-bottom: none;
     }
 
+    .experience-header {
+      margin-bottom: 16px;
+    }
+
     .role-title {
       font-size: 1.125rem;
       font-weight: 600;
@@ -221,7 +224,6 @@
       color: #BDBDBD;
       font-size: 0.9375rem;
       line-height: 1.6;
-      margin-top: 12px;
     }
 
     .projects-grid {
@@ -260,6 +262,7 @@
 
     .tag {
       color: #888888;
+      padding: 4px 8px;
     }
 
     .photo-section {
@@ -343,8 +346,8 @@
       <h1>Nishanta Poudel (21M)</h1>
       <p class="tagline">Electronics, Communication, and Information Engineering Undergrad</p>
       <div class="header-links">
-        <a href="https://github.com/nishantnn" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/nishanta-poudel/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/nishantnn" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/nishanta-poudel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <div class="email-copy" id="emailCopy">
           <span>nishantapoudel155@gmail.com</span>
           <div class="copy-feedback" id="copyFeedback">Copied!</div>
@@ -360,39 +363,91 @@
 
     <section class="section" id="about">
       <h2>About</h2>
-      <p class="about-content">I'm an undergraduate student in Electronics, Communication, and Information Engineering. I like understanding how things work at a deep level, whether it's circuits, software, or systems. I value clear thinking, practical solutions, and learning by doing.</p>
+      <p class="about-content">I'm an undergraduate student in Electronics, Communication, and Information Engineering. I like understanding how things work at a deep level, whether it's circuits, software, or systems. I enjoy building projects that challenge me to connect theory with practice, especially in areas like electronics, automation, and educational technology. I value clear thinking, practical solutions, and learning by doing.</p>
     </section>
 
     <section class="section" id="experience">
       <h2>Education</h2>
+
       <div class="experience-item">
-        <div class="role-title">Bachelors in Engineering</div>
-        <div class="company-info">
-          <span>IOE, Thapathali Campus</span>
-          <span>2024 – Present</span>
+        <div class="experience-header">
+          <div class="role-title">Bachelors in Engineering</div>
+          <div class="company-info">
+            <span class="company">IOE, Thapathali Campus</span>
+            <span class="date">2024 – Present</span>
+          </div>
         </div>
-        <p class="description">Currently pursuing undergraduate studies on Electronics, Communication & Information Engineering.</p>
+        <p class="description">Started undergraduate studies on Electronics, Communication & Information Engineering at Thapathali Campus-Thapathali, the first and one of the constituent engineering campus of Tribhuvan University, Institute of Engineering, Nepal.</p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="role-title">+2</div>
+          <div class="company-info">
+            <span class="company">National Examinations Board</span>
+            <span class="date">2021 – 2023</span>
+          </div>
+        </div>
+        <p class="description">Passed grade 11 with a GPA of 3.72 and grade 12 with a GPA of 3.63 from Kanchanjunga English Secondary School, Birtamode Jhapa Nepal.</p>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="role-title">Freshman & Sophomore</div>
+          <div class="company-info">
+            <span class="company">Shree Amarkalyan Model Secondary School</span>
+            <span class="date">2020 – 2021</span>
+          </div>
+        </div>
+        <p class="description">Passed Grade 9 with a GPA of 3.85. & grade 10 with a GPA of 4.00 (NEB).</p>
       </div>
     </section>
 
     <section class="section" id="projects">
       <h2>Projects</h2>
+
       <div class="projects-grid">
         <div class="project-item">
           <div class="project-title">
-            <a href="https://github.com/NishantNN/Face-Recognition-Attendance-Engine" target="_blank">Face Recognition Attendance Engine</a>
+            <a href="https://github.com/NishantNN/Face-Recognition-Attendance-Engine" target="_blank" rel="noopener noreferrer">Face Recognition Attendance Engine</a>
           </div>
-          <p class="project-description">Built a lightweight face detection system using C++ and OpenCV.</p>
+          <p class="project-description">Built a lightweight face detection attendance system using device's webcam mainly relying on C++ and OpenCV's Haar Cascade face detection module. Implemented Mean Square Error technique to recognize faces and update the attendances accordingly.</p>
           <div class="project-tags">
             <span class="tag">C++</span>
             <span class="tag">OpenCV</span>
+            <span class="tag">CMake</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">
+            <a href="https://github.com/NishantNN/CS50P-Final-Project" target="_blank" rel="noopener noreferrer">Quick Quiz (CS50P Final Project)</a>
+          </div>
+          <p class="project-description">The final project of Harvard University CS50's Introduction to programming with Python (CS50P). This project is a quiz where the user can set different criteria for questions that is to be asked to them.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">CS50P</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">
+            <a href="https://amarkalyan.edu.np" target="_blank" rel="noopener noreferrer">Amarkalyan Model Secondary School</a>
+          </div>
+          <p class="project-description">Designed and Created a fully functioning website for the school where I completed my grade 9 and 10. Features notices and admin panel for website customization.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">SCSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Firebase</span>
           </div>
         </div>
       </div>
     </section>
 
     <footer class="section">
-      <div class="footer-text">&copy; <span id="year"></span> Nishanta Poudel</div>
+      <div class="footer-text">&copy; <span id="year">2024</span> Nishanta Poudel</div>
       <div class="built-with">Built with clear intent.</div>
     </footer>
     <button class="go-to-top" id="goToTop" aria-label="Go to top"></button>
@@ -403,7 +458,10 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.1 });
 
