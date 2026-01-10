@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 — Page Not Found</title>
-
-  <meta name="robots" content="noindex, nofollow" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | Signal Lost</title>
   <style>
     * {
       margin: 0;
@@ -15,92 +12,131 @@
     }
 
     body {
-      background: #000;
-      color: #eaeaea;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                   Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-      min-height: 100vh;
+      background: #000000;
+      color: #EAEAEA;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      line-height: 1.6;
       overflow: hidden;
     }
 
-
-@keyframes shoot {
-  0% {
-    transform: translateX(0) translateY(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateX(-140vw) translateY(140vh);
-    opacity: 0;
-  }
-}
-
-    .wrapper {
-      max-width: 520px;
-      padding: 40px 24px;
+    /* Star Background Logic */
+    .star-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    .code {
-      font-size: 4rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
+    .star {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.03), 0 0 8px rgba(255, 255, 255, 0.2);
+      animation: animate linear infinite;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
     }
 
-    .message {
-      color: #bdbdbd;
-      font-size: 1.05rem;
-      margin-bottom: 40px;
+    .star::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
     }
 
-    a {
-      color: #eaeaea;
-      text-decoration: none;
-      border-bottom: 1px solid #333;
-      padding-bottom: 2px;
-      transition: opacity 0.3s ease;
-    }
-
-    a:hover {
-      opacity: 0.6;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.875rem;
-      color: #777;
-    }
-
-    @media (max-width: 640px) {
-      .code {
-        font-size: 3rem;
+    @keyframes animate {
+      0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 0;
       }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% {
+        transform: rotate(315deg) translateX(-1500px);
+        opacity: 0;
+      }
+    }
+
+    /* Randomized Star Placements */
+    .star:nth-child(1) { top: 10%; right: 10%; animation-duration: 2.5s; animation-delay: 0s; }
+    .star:nth-child(2) { top: 30%; right: -5%; animation-duration: 3.5s; animation-delay: 1s; }
+    .star:nth-child(3) { top: 60%; right: 20%; animation-duration: 2.8s; animation-delay: 2s; }
+    .star:nth-child(4) { top: 80%; right: 40%; animation-duration: 4s; animation-delay: 0.5s; }
+    .star:nth-child(5) { top: 40%; right: 60%; animation-duration: 3.2s; animation-delay: 1.5s; }
+
+    /* Content Styling */
+    .content {
+      text-align: center;
+      z-index: 10;
+      padding: 0 24px;
+    }
+
+    .error-code {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: #888888;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: #888888;
+      font-size: 1rem;
+      max-width: 400px;
+      margin: 0 auto 48px auto;
+      line-height: 1.6;
+    }
+
+    .back-home {
+      color: #EAEAEA;
+      text-decoration: none;
+      font-size: 0.9375rem;
+      border: 1px solid #333;
+      padding: 12px 24px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .back-home:hover {
+      background: #EAEAEA;
+      color: #000;
     }
   </style>
 </head>
-
 <body>
-  <main class="wrapper">
-    <div class="code">404</div>
-    <p class="message">
-      The page you're looking for doesn't exist.
-    </p>
-    <a href="./index.html">Go back home</a>
 
-    <footer>
-      Nishanta Poudel
-    </footer>
-  </main>
+  <div class="star-container">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+
+  <div class="content">
+    <div class="error-code">Status: 404</div>
+    <h1>Signal Interrupted.</h1>
+    <p>The system could not locate the requested resource. The coordinates might be incorrect or the link has decayed.</p>
+    <a href="/" class="back-home">Return to System Home</a>
+  </div>
+
 </body>
 </html>
