@@ -24,73 +24,14 @@
       font-size: 16px;
     }
 
-     .star-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      top: -5%;
-      left: -5%;
-      width: 1px;
-      height: 1px;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.03), 0 0 8px rgba(255, 255, 255, 0.2);
-      animation: animate linear infinite;
-      opacity: 0;
-    }
-
-    .star::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
-    }
-
-    @keyframes animate {
-      0% {
-        transform: rotate(315deg) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.6;
-      }
-      90% {
-        opacity: 0.6;
-      }
-      100% {
-        transform: rotate(315deg) translateX(-1200px);
-        opacity: 0;
-      }
-    }
-
-    /* Fast randomized stars */
-    .star:nth-child(1) { top: 0; right: 15%; left:initial; animation-delay: 0s; animation-duration: 2.2s; }
-    .star:nth-child(2) { top: 25%; right: -5%; left:initial; animation-delay: 1s; animation-duration: 3.2s; }
-    .star:nth-child(3) { top: 55%; right: 10%; left:initial; animation-delay: 2s; animation-duration: 2.5s; }
-    .star:nth-child(4) { top: 10%; right: 45%; left:initial; animation-delay: 0.4s; animation-duration: 3.8s; }
-    .star:nth-child(5) { top: 75%; right: 20%; left:initial; animation-delay: 3s; animation-duration: 2.8s; }
-
-
-
     .container {
       max-width: 650px;
       margin: 0 auto;
       padding: 80px 32px;
+      position: relative;
     }
 
-    /* HEADER SECTION */
+    /* SECTIONS */
     .section {
       margin-bottom: 100px;
       opacity: 0;
@@ -122,6 +63,7 @@
       color: #888888;
       font-weight: 400;
       margin-bottom: 40px;
+      text-align: center;
     }
 
     .header-links {
@@ -129,6 +71,7 @@
       gap: 24px;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
     }
 
     a {
@@ -147,6 +90,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      position: relative;
     }
 
     .copy-feedback {
@@ -159,11 +103,10 @@
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
-      transform: translateY(-8px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(-8px) translateX(-50%);
       bottom: calc(100% + 12px);
       left: 50%;
-      transform: translateY(-8px) translateX(-50%);
+      transition: all 0.3s;
     }
 
     .copy-feedback.active {
@@ -171,7 +114,6 @@
       transform: translateY(-12px) translateX(-50%);
     }
 
-    /* ABOUT SECTION */
     h2 {
       font-size: 1rem;
       font-weight: 600;
@@ -189,7 +131,6 @@
       line-height: 1.7;
     }
 
-    /* EXPERIENCE SECTION */
     .experience-item {
       margin-bottom: 60px;
       padding-bottom: 40px;
@@ -216,15 +157,7 @@
       align-items: flex-start;
       gap: 16px;
       font-size: 0.9375rem;
-    }
-
-    .company {
       color: #888888;
-    }
-
-    .date {
-      color: #888888;
-      white-space: nowrap;
     }
 
     .description {
@@ -233,7 +166,6 @@
       line-height: 1.6;
     }
 
-    /* PROJECTS SECTION */
     .projects-grid {
       display: grid;
       gap: 40px;
@@ -252,10 +184,6 @@
       font-size: 1.125rem;
       font-weight: 600;
       margin-bottom: 8px;
-    }
-
-    .project-title a {
-      color: #EAEAEA;
     }
 
     .project-description {
@@ -277,7 +205,6 @@
       padding: 4px 8px;
     }
 
-    /* PHOTO SECTION */
     .photo-section {
       margin-bottom: 60px;
       text-align: center;
@@ -306,7 +233,6 @@
       display: block;
     }
 
-    /* FOOTER SECTION */
     footer {
       text-align: center;
       font-size: 0.875rem;
@@ -315,14 +241,6 @@
       border-top: 1px solid #222222;
     }
 
-    .footer-text {
-      margin-bottom: 8px;
-    }
-
-    .built-with {
-      margin-top: 20px;
-      color: #888888;
-    }
     .go-to-top {
       position: fixed;
       bottom: 32px;
@@ -338,12 +256,8 @@
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s;
       z-index: 999;
-    }
-
-    .go-to-top:hover {
-      background: #333333;
     }
 
     .go-to-top.visible {
@@ -355,10 +269,8 @@
       content: '↑';
       color: #EAEAEA;
       font-size: 1.5rem;
-      font-weight: 600;
-      line-height: 1;
     }
-    /* RESPONSIVE */
+
     @media (max-width: 640px) {
       .container {
         padding: 60px 20px;
@@ -368,11 +280,7 @@
       .photo-container {
         max-width: 250px;
       }
-      
-      .photo-container:hover{
-        filter: grayscale(100%);
 
-      }
       h1 {
         font-size: 1.75rem;
       }
@@ -405,23 +313,8 @@
   </style>
 </head>
 <body>
-  <div class="star-container">
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-  </div>
   <div class="container">
-    <!-- HEADER -->
     <header class="section">
-      <div class="photo-section">
-        <!-- <div class="photo-container">
-          <img src="/placeholder.svg?height=300&width=300" alt="Professional headshot">
-        </div> -->
-      </div>
       <h1>Nishanta Poudel</h1>
       <p class="tagline">Electronics, Communication, and Information Engineering Undergrad</p>
       <div class="header-links">
@@ -435,20 +328,17 @@
       </div>
     </header>
 
-    <!-- PHOTO -->
     <section class="photo-section">
       <div class="photo-container">
-        <img src="me.jpg" alt="Nishanta Poudel"
+        <img src="Nishanta.jpg" alt="Nishanta Poudel">
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="section" id="about">
       <h2>About</h2>
       <p class="about-content">I'm an undergraduate student in Electronics, Communication, and Information Engineering. I like understanding how things work at a deep level, whether it's circuits, software, or systems. I enjoy building projects that challenge me to connect theory with practice, especially in areas like electronics, automation, and educational technology. I value clear thinking, practical solutions, and learning by doing.</p>
     </section>
 
-    <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <h2>Education</h2>
 
@@ -471,7 +361,7 @@
             <span class="date">2021 – 2023</span>
           </div>
         </div>
-        <p class="description">Passed grade 11 with a GPA of 3.72 and  grade 12 with a GPA of 3.63 from Kanchanjunga English Secondary School, Birtamode Jhapa Nepal.</p>
+        <p class="description">Passed grade 11 with a GPA of 3.72 and grade 12 with a GPA of 3.63 from Kanchanjunga English Secondary School, Birtamode Jhapa Nepal.</p>
       </div>
 
       <div class="experience-item">
@@ -482,12 +372,10 @@
             <span class="date">2020 – 2021</span>
           </div>
         </div>
-        <p class="description">Passed Grade 9 with a GPA of 3.85. & grade 10 with a GPA of 4.00 (NEB).
-        </p>
+        <p class="description">Passed Grade 9 with a GPA of 3.85. & grade 10 with a GPA of 4.00 (NEB).</p>
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="section" id="projects">
       <h2>Projects</h2>
 
@@ -496,22 +384,22 @@
           <div class="project-title">
             <a href="https://github.com/NishantNN/Face-Recognition-Attendance-Engine" target="_blank" rel="noopener noreferrer">Face Recognition Attendance Engine</a>
           </div>
-          <p class="project-description"> Built a lightweight face detection attendance system using device's webcam mainly relying on C++ and OpenCV's Haar Cascade face detection module. Implemented Mean Square Error technique to recognize faces and update the attendances accordingly.</p>
+          <p class="project-description">Built a lightweight face detection attendance system using device's webcam mainly relying on C++ and OpenCV's Haar Cascade face detection module. Implemented Mean Square Error technique to recognize faces and update the attendances accordingly.</p>
           <div class="project-tags">
             <span class="tag">C++</span>
             <span class="tag">OpenCV</span>
             <span class="tag">CMake</span>
           </div>
         </div>
+
         <div class="project-item">
           <div class="project-title">
             <a href="https://github.com/NishantNN/CS50P-Final-Project" target="_blank" rel="noopener noreferrer">Quick Quiz (CS50P Final Project)</a>
           </div>
-          <p class="project-description">The final project of Harvard University CS50's Introduction to programming with Python (CS50P) completed by Nishanta Poudel. This project is a quiz where the user can set different criteria for questions that is to be asked to them. The criteria is flexible to the user's choice.</p>
+          <p class="project-description">The final project of Harvard University CS50's Introduction to programming with Python (CS50P). This project is a quiz where the user can set different criteria for questions that is to be asked to them.</p>
           <div class="project-tags">
             <span class="tag">Python</span>
             <span class="tag">CS50P</span>
-            <!-- <span class="tag">Education</span> -->
           </div>
         </div>
 
@@ -519,36 +407,27 @@
           <div class="project-title">
             <a href="https://amarkalyan.edu.np" target="_blank" rel="noopener noreferrer">Amarkalyan Model Secondary School</a>
           </div>
-          <p class="project-description">Designed and Created a fully functioning website for the school where I completed my grade 9 and 10. It is a fully functioning website with notices and admin panel for website customization.</p>
+          <p class="project-description">Designed and Created a fully functioning website for the school where I completed my grade 9 and 10. Features notices and admin panel for website customization.</p>
           <div class="project-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">SCSS</span>
             <span class="tag">JavaScript</span>
             <span class="tag">Firebase</span>
-            <span class="tag">Cloudinary</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="section">
       <div class="footer-text">&copy; <span id="year">2024</span> Nishanta Poudel</div>
       <div class="built-with">Built with clear intent.</div>
     </footer>
-      <button class="go-to-top" id="goToTop" aria-label="Go to top"></button>
+    <button class="go-to-top" id="goToTop" aria-label="Go to top"></button>
   </div>
 
   <script>
-    // Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Intersection Observer for Scroll Reveal
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -557,61 +436,23 @@
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section').forEach(section => {
-      observer.observe(section);
-    });
+    document.querySelectorAll('.section').forEach(section => observer.observe(section));
 
-    // Copy to Clipboard
     const emailCopy = document.getElementById('emailCopy');
     const copyFeedback = document.getElementById('copyFeedback');
-    const email = 'nishantapoudel155@gmail.com';
+    emailCopy.onclick = async () => {
+      await navigator.clipboard.writeText('nishantapoudel155@gmail.com');
+      copyFeedback.classList.add('active');
+      setTimeout(() => copyFeedback.classList.remove('active'), 2000);
+    };
 
-    emailCopy.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(email);
-        copyFeedback.classList.add('active');
-        
-        setTimeout(() => {
-          copyFeedback.classList.remove('active');
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy:', err);
-      }
-    });
-
-    // Keyboard accessibility for email copy
-    emailCopy.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        emailCopy.click();
-      }
-    });
-
-    emailCopy.setAttribute('role', 'button');
-    emailCopy.setAttribute('tabindex', '0');
-
-        const goToTopButton = document.getElementById('goToTop');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        goToTopButton.classList.add('visible');
-      } else {
-        goToTopButton.classList.remove('visible');
-      }
-    });
-
-    goToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  </script>
-</body>
-</html>
-
+    const goToTopButton = document.getElementById('goToTop');
+    window.onscroll = () => {
+      window.scrollY > 400 ? goToTopButton.classList.add('visible') : goToTopButton.classList.remove('visible');
+    };
+    goToTopButton.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   </script>
 </body>
 </html>
