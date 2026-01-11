@@ -223,25 +223,26 @@
     }
 
     .copy-feedback {
-      position: absolute;
+      position: fixed; /* This locks it to the browser window */
+      top: 110px;       /* Fixed distance from the top of the screen */
+      left: 50%;
+      transform: translateX(-50%); /* Centers it horizontally */
       background: #333333;
       color: #EAEAEA;
-      padding: 6px 12px;
+      padding: 3px 10px;
       border-radius: 4px;
       font-size: 0.875rem;
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
-      transform: translateY(-8px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      bottom: calc(100% + 12px);
-      left: 50%;
-      transform: translateY(-8px) translateX(-50%);
+      transition: opacity 0.3s ease;
+      z-index: 9999;    /* Keeps it above everything else */
+      border: 1px solid #1b1b1b;
     }
 
     .copy-feedback.active {
       opacity: 1;
-      transform: translateY(-12px) translateX(-50%);
+      /* Notice: No Y-axis transform here, so it stays perfectly still */
     }
 
     /* ABOUT SECTION */
@@ -515,7 +516,7 @@
         <a href="https://www.linkedin.com/in/nishanta-poudel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <div class="email-copy" id="emailCopy">
           <span>nishantapoudel155@gmail.com</span>
-          <div class="copy-feedback" id="copyFeedback">Copied!</div>
+          <div class="copy-feedback" id="copyFeedback">Copied !</div>
         </div>
         <a href="cv.pdf" download class="cv-link"> Download CV </a>
       </div>
@@ -720,7 +721,7 @@
 
         setTimeout(() => {
           copyFeedback.classList.remove('active');
-        }, 2000);
+        }, 600);
       } catch (err) {
         console.error('Failed to copy:', err);
       }
