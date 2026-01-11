@@ -76,8 +76,8 @@
       position: absolute;
       top: -5%;
       left: -5%;
-      width: 1px;
-      height: 1px;
+      width: 2px;
+      height: 2px;
       background: #fff;
       border-radius: 50%;
       box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.03), 0 0 8px rgba(255, 255, 255, 0.2);
@@ -90,8 +90,8 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 50px;
-      height: 1px;
+      width: 120px;
+      height: 2px;
       background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent);
     }
 
@@ -418,8 +418,8 @@
       width: 44px;
       height: 44px;
       background: #222222;
-      border: 1px solid #333333;
-      border-radius: 4px;
+      border: 1px solid #ffffff;
+      border-radius: 30px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -440,7 +440,6 @@
     }
 
     .go-to-top::before {
-      content: '↑';
       color: #EAEAEA;
       font-size: 1.5rem;
       font-weight: 600;
@@ -683,7 +682,12 @@
       <div class="footer-text">&copy; <span id="year">2024</span> Nishanta Poudel</div>
       <div class="built-with">Built with clear intent.</div>
     </footer>
-    <button class="go-to-top" id="goToTop" aria-label="Go to top"></button>
+    <button class="go-to-top" id="goToTop" aria-label="Go to top">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#908c83" fill="none">
+            <path d="M3.09502 10C3.03241 10.457 3 10.9245 3 11.4C3 16.7019 7.02944 21 12 21C16.9706 21 21 16.7019 21 11.4C21 10.9245 20.9676 10.457 20.905 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M12 3L12 13M12 3C11.2998 3 9.99153 4.9943 9.5 5.5M12 3C12.7002 3 14.0085 4.9943 14.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
   </div>
 
   <script>
@@ -758,3 +762,5 @@
 </body>
 
 </html>
+
+
