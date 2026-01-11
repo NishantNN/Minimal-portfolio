@@ -69,4 +69,4 @@ To view this portfolio on your local machine:
 * **Portfolio:** [nishantapoudel.com.np](https://nishantapoudel.com.np/)
 
 ---
-&copy; 2024 Nishanta Poudel.
+&copy; 2026 Nishanta Poudel.
