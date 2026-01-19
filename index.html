@@ -156,6 +156,19 @@
       animation-duration: 2.8s;
     }
 
+    .star:nth-child(6) {
+  top: 40%;
+  right: 30%;
+  animation-delay: 1.5s;
+  animation-duration: 3s;
+}
+.star:nth-child(7) {
+  top: 90%;
+  right: 60%;
+  animation-delay: 2.5s;
+  animation-duration: 4s;
+}
+
 
 
     .container {
@@ -216,6 +229,11 @@
     }
 
     .email-copy {
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
+      padding: 0;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -508,10 +526,10 @@
       <div class="header-links">
         <a href="https://github.com/nishantnn" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/nishanta-poudel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <div class="email-copy" id="emailCopy">
-          <span>nishantapoudel155@gmail.com</span>
-          <div class="copy-feedback" id="copyFeedback">Copied !</div>
-        </div>
+        <button class="email-copy" id="emailCopy" aria-label="Copy email address">
+      <span>nishantapoudel155@gmail.com</span>
+      <div class="copy-feedback" id="copyFeedback">Copied !</div>
+  </button>
         <a href="cv.pdf" download class="cv-link"> Download CV </a>
       </div>
     </header>
@@ -686,6 +704,11 @@
   </div>
 
   <script>
+
+    // 1. JS REDIRECT FIX for Duplicate Content
+    if (window.location.pathname.endsWith('index.html')) {
+        window.location.replace(window.location.pathname.replace('index.html', ''));
+    }
     // Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -733,9 +756,6 @@
         emailCopy.click();
       }
     });
-
-    emailCopy.setAttribute('role', 'button');
-    emailCopy.setAttribute('tabindex', '0');
 
     const goToTopButton = document.getElementById('goToTop');
 
